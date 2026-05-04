@@ -83,8 +83,8 @@ export const login = async (req, res) => {
 		res.cookie("jwt", token, {
 			maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in milliseconds
 			httpOnly: true, // prevents XSS attacks
-			sameSite: "strict", // prevents CSRF attacks
-			secure: process.env.NODE_ENV === "production",
+			sameSite: "none", // prevents CSRF attacks
+			secure: true,
 		});
 
 		res.status(200).json({
