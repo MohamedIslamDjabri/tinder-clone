@@ -55,8 +55,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  // MAKE SURE TO ADD THIS IF CHECK!!! 👇 I forgot to add this in the tutorial
-  // only hash if password is modified.
+
   if (!this.isModified("password")) {
     return next();
   }
